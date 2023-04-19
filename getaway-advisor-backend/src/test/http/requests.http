@@ -1,0 +1,60 @@
+### Get all suggestions
+GET http://localhost:8080/suggestions
+
+### Add new suggestion
+PUT http://localhost:8080/suggestions/3d1aab3b-c8a8-4d58-9300-4d282699c7ba
+Content-Type: application/json
+
+{
+  "name": "test activity2",
+  "isIndoor": false,
+  "isOutdoor": true,
+  "comments": "some comments (2)"
+}
+
+### Delete suggestion
+DELETE http://localhost:8080/suggestions/3d1aab3b-c8a8-4d58-9300-4d282699c7bb
+
+### Add/change the vote
+POST http://localhost:8080/votes
+Content-Type: application/json
+
+{
+  "suggestionId": "3d1aab3b-c8a8-4d58-9300-4d282699c7ba",
+  "email": "user2@email.com",
+  "isYes": true,
+  "comments": "User2 comments"
+}
+
+### Get all votes
+GET http://localhost:8080/votes
+
+### Get votes by suggestion
+GET http://localhost:8080/suggestions/3d1aab3b-c8a8-4d58-9300-4d282699c7ba/votes
+
+### Add / update activity
+PUT http://localhost:8080/activities/111aab3b-c8a8-4d58-9300-22282699c711
+Content-Type: application/json
+
+{
+  "name": "Activity 1 - modified",
+  "date": "2023-04-28",
+  "suggestions": ["3d1aab3b-c8a8-4d58-9300-4d282699c7ba", "3d1aab3b-c8a8-4d58-9300-4d282699c7bb"]
+}
+
+### Add / update activity
+PUT http://localhost:8080/activities/111aab3b-c8a8-4d58-9300-22282699c712
+Content-Type: application/json
+
+{
+"name": "Activity 2",
+"date": "2023-04-29",
+"suggestions": ["3d1aab3b-c8a8-4d58-9300-4d282699c7ba"]
+}
+
+### Get all activities
+GET http://localhost:8080/activities
+
+### Get activity by Id
+GET http://localhost:8080/activities/111aab3b-c8a8-4d58-9300-22282699c712
+
